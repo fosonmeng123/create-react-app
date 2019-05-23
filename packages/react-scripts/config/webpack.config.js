@@ -121,6 +121,10 @@ module.exports = function(webpackEnv) {
         loader: require.resolve(preProcessor),
         options: {
           sourceMap: isEnvProduction && shouldUseSourceMap,
+          // .@@. mhugh: resolve node_modules
+          includePaths: [
+            path.join(paths.appPath, 'node_modules')
+          ],
         },
       });
     }
